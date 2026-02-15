@@ -22,6 +22,7 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - Different Operators used in Java
 - Conditional Statements with some practice questions
 - Different types of loops in Java along with some practice questions.
+- Patterns in Java/Logic building section.
 
 ---
 
