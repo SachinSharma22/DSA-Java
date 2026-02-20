@@ -7,9 +7,22 @@ public class ReverseArray {
         }
         return revArr;
     }
+    public static int[] reverseWithinArray(int[] arr){
+        int f = 0;
+        int l = arr.length-1;
+        while(f<l){
+            int temp = arr[f];
+            arr[f] = arr[l];
+            arr[l] = temp;
+            f++;
+            l--;
+        }
+        return arr;
+    }
     public static void main(String[] args) {
-        int [] arr = {1,2,3,4,5,6,7,8};
-        int[] result = reverseArray(arr);
+        int [] arr = {1,2,3,4,5,6,7,8,9};
+        // int[] result = reverseArray(arr);
+        int[] result = reverseWithinArray(arr);
         for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + " ");
         }
