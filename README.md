@@ -23,7 +23,8 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - Conditional Statements with some practice questions
 - Different types of loops in Java along with some practice questions.
 - Patterns in Java/Logic building section.
-
+- Functions and Methods with structured practice problems and basics.
+- Arrays in Java with structured practice problems and optimized LeetCode solutions.
 ---
 
 ## How to Run a File
