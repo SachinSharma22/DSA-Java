@@ -1,6 +1,17 @@
 package arrayz2d;
 
 public class DiagonalSum {
+    public static int optimizedDiagonalSum(int [][] matrix){
+        int sum = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+            sum+= matrix[i][i];
+            if(i!= matrix[i][matrix.length-1-i]){
+                sum+= matrix[i][matrix.length-i-1];
+            }
+        }
+        return sum;
+    }
     public static int printDiagonalSum(int[][] matrix){
         // With time complexity O(n^2)
         int sum = 0;
@@ -22,7 +33,8 @@ public class DiagonalSum {
             {9,10,11,12},
             {13,14,15,16}
         };
-        int result = printDiagonalSum(matrix);
+        // int result = printDiagonalSum(matrix);
+        int result = optimizedDiagonalSum(matrix);
         System.out.println("Total diagonal sum of given matrix is: " + result);
     }
 }
