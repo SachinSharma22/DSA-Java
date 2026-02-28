@@ -8,9 +8,12 @@ public class Substring {
     }
     public static void main(String[] args) {
         String str = "HelloWorld";
-        int si = 0;
-        int ei = 7;
-        String subStr = printSubString(str,si,ei);
-        System.out.println(subStr);
+        // int si = 0;
+        // int ei = 7;
+        // String subStr = printSubString(str,si,ei);
+        // System.out.println(subStr);
+
+        //using inbuilt function
+        System.out.println(str.substring(0,5));
     }
 }
