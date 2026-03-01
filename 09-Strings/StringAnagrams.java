@@ -1,28 +1,27 @@
 import java.util.Arrays;
 
 public class StringAnagrams {
-    public static void isAnagram(String str1, String str2){
-        // Change strings into character array
-        char[] str1CharArray = str1.toCharArray();
-        char[] str2CharArray = str2.toCharArray();
-
-        // Sort both arrays
-        Arrays.sort(str1CharArray);
-        Arrays.sort(str2CharArray);
-        if (str1.length() == str2.length()) {
-            if(str1CharArray.equals(str2CharArray)){
-                System.out.println(str1+ " and " + str2 + " are anagrams. ");
-            }else{
-                System.out.println(str1+ " and " + str2 + " are not anagrams. ");
-            }
-        }else{
-           System.out.println(str1+ " and " + str2 + " are not anagrams. ");
+    public static boolean isAnagram(String s, String t){
+        if (s.length() != t.length()) {
+        return false;
         }
+
+        char[] sCharArr = s.toCharArray();
+        char[] tCharArr = t.toCharArray();
+
+        Arrays.sort(sCharArr);
+        Arrays.sort(tCharArr);
+
+        return Arrays.equals(sCharArr, tCharArr);
         
     }
     public static void main(String[] args) {
-        String str1 = "aab";
-        String str2 = "abb";
-        isAnagram(str1, str2);
+        String str1 = "anagram";
+        String str2 = "nagaram";
+        if(isAnagram(str1, str2)){
+            System.out.println("Anagrams");
+        }else{
+            System.out.println("Not Anagrams");
+        }
     }
 }
