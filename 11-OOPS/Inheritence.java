@@ -4,10 +4,15 @@ public class Inheritence {
         // f.breath();
 
         // Multilevel Inheritance
-        Dogs pit = new Dogs();
-        pit.eat();
-        pit.legs = 4;
-        System.out.println(pit.legs);
+        // Dogs pit = new Dogs();
+        // pit.eat();
+        // pit.legs = 4;
+        // System.out.println(pit.legs);
+
+        // Hierarchial Inheritance
+        Birds b = new Birds();
+        b.breath();
+        b.fly();
     }
 }
 
@@ -26,11 +31,21 @@ class Animal{
 
 class Mammel extends Animal{
     int legs;
+    void walk(){
+        System.out.println("Can walk");
+    }
 }
 
-class Dogs extends Mammel{
-    String breed;
+class Birds extends Animal{
+    void fly() {
+        System.out.println("Can fly");
+    }
 }
+
+
+// class Dogs extends Mammel{
+//     String breed;
+// }
 
 // // Derived Class
 
