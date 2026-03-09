@@ -4,12 +4,12 @@ public class MethodOverriding {
         d.eat();
     }
 }
-class Animal{
+class Animal5{
     void eat() {
         System.out.println("Eat Anything");
     }
 }
-class Deer extends Animal{
+class Deer extends Animal5{
     void eat() {
         System.out.println("Eat Grass");
     }
