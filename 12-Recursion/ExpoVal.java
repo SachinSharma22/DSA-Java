@@ -3,7 +3,9 @@ public class ExpoVal {
         if(x == 0){
             return 1;
         }
-        int halfPowerSq = optimizedPower(n, x/2) *optimizedPower(n, x/2);
+        int halfPower = optimizedPower(n, x/2);
+        // int halfPowerSq = optimizedPower(n, x/2) *optimizedPower(n, x/2);
+        int halfPowerSq = halfPower * halfPower;
         
         if(x % 2 != 0){
             halfPowerSq = n * halfPowerSq;
