@@ -27,6 +27,11 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - Arrays in Java with structured practice problems and optimized LeetCode solutions.
 - Basic and inbuilt sorting algorithms
 - 2D Arrays and Related Problems
+- Strings
+- Bit Manipulation
+- OOPS
+- Recursion
+- Divide and Conquer
 ---
 
 ## How to Run a File
