@@ -1,4 +1,4 @@
-public class RemoveDuplicates {
+public class RemoveDuplicates1 {
     public static void removeDuplicates(String str, int idx, StringBuilder newStr, boolean map[]){
         if(idx == str.length()){
             System.out.println(newStr);
