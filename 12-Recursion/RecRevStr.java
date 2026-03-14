@@ -14,14 +14,24 @@ public class RecRevStr {
         revStr(str, i+1);
         System.out.print(str.charAt(i) + " ");
     }
+    public static String revString(String str, int i){
+        if (i == str.length()-1) {
+            return String.valueOf(str.charAt(i));
+        }
+        String smallAns = revString(str, i+1);
+        return smallAns + str.charAt(i);
+    }
     public static void main(String[] args) {
         String str = "hello";
         int i = 0;
         // revStr(str,i);
 
         //for string builder
-        StringBuilder res = new StringBuilder();
-        revStrWithBuilder(str,i,res);
-        System.out.println(res.toString());
+        // StringBuilder res = new StringBuilder();
+        // revStrWithBuilder(str,i,res);
+        // System.out.println(res.toString());
+
+        String reversed = revString(str, i);
+        System.out.println(reversed);
     }
 }
