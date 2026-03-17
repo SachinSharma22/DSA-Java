@@ -1,5 +1,9 @@
 public class SortArrConsisting0sAnd1s {
     public static void sortArr(int[] arr){
+        if(arr.length == 0){
+            System.out.println("Enter some value first");
+            return;
+        }
         int lp = 0;
         int rp = arr.length-1;
         while (lp != rp) {
