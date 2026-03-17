@@ -6,7 +6,7 @@ public class SortArrConsisting0sAnd1s {
         }
         int lp = 0;
         int rp = arr.length-1;
-        while (lp != rp) {
+        while (lp < rp) {
             if(arr[rp] == 0 && arr[lp] == 1){
                 int temp = arr[rp];
                 arr[rp] = arr[lp];
@@ -29,7 +29,7 @@ public class SortArrConsisting0sAnd1s {
         System.out.println();
     }
     public static void main(String[] args) {
-        int[] arr = {1,0,0,1,0,1,1,0,0};
+        int[] arr = {0,0,0,1,1,0,0,1,1,0,0};
         sortArr(arr);
     }
 }
