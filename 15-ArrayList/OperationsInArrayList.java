@@ -24,9 +24,12 @@ public class OperationsInArrayList {
         // list.set(2, 22);
         // System.out.println(list);
 
-        System.out.println("---------------Contains Operation -------------------");
-        System.out.println(list.contains(3));
-        System.out.println(list.contains(33));
+        // System.out.println("---------------Contains Operation -------------------");
+        // System.out.println(list.contains(3));
+        // System.out.println(list.contains(33));
+
+        System.out.println("---------------------Size of arraylist-----------------------");
+        System.out.println(list.size());
 
     }
 }
