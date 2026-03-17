@@ -28,8 +28,12 @@ public class OperationsInArrayList {
         // System.out.println(list.contains(3));
         // System.out.println(list.contains(33));
 
-        System.out.println("---------------------Size of arraylist-----------------------");
-        System.out.println(list.size());
+        // System.out.println("---------------------Size of arraylist-----------------------");
+        // System.out.println(list.size());
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
 
     }
 }
