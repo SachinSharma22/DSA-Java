@@ -11,6 +11,8 @@ public class SortArrConsisting0sAnd1s {
                 int temp = arr[rp];
                 arr[rp] = arr[lp];
                 arr[lp] = temp;
+                lp++;
+                rp--;
             }
 
             if(arr[rp] == 1){
