@@ -32,6 +32,8 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - OOPS
 - Recursion
 - Divide and Conquer
+- Backtracking
+- ArrayList
 ---
 
 ## How to Run a File
