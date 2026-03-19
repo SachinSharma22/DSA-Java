@@ -97,6 +97,41 @@ public class LinkedList {
         return val;
     }
 
+    // Iterative search in Linked List
+    public int itrSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp != null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
+
+
+    public int helper(Node head, int key){
+        if(head == null){
+            return -1;
+        }
+
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1){
+            return -1;
+        }
+        return idx + 1;
+    }
+
+    //recursive search in linked list
+    public int recSearch(int key, int i){
+        return helper(head, key);
+    }
+
     public void printLList(){
         if(head == null){
             System.out.println("LinkedList is empty.");
@@ -124,11 +159,15 @@ public class LinkedList {
         // System.out.println("Size of my Linked List : " + size);
 
         // To remove linked list
-        ll.removeFirst();
-        ll.printLList();
+        // ll.removeFirst();
+        // ll.printLList();
 
-        ll.removeLast();
-        ll.printLList();
-        System.out.println(size);
+        // ll.removeLast();
+        // ll.printLList();
+        // System.out.println(size);
+
+        // Iterative search function
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(310));
     }
 }
