@@ -167,6 +167,10 @@ public class LinkedList {
         // System.out.println(size);
 
         // Iterative search function
+        // System.out.println(ll.itrSearch(3));
+        // System.out.println(ll.itrSearch(310));
+
+        // Recursive search
         System.out.println(ll.itrSearch(3));
         System.out.println(ll.itrSearch(310));
     }
