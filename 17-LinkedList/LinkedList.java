@@ -172,6 +172,50 @@ public class LinkedList {
         return;
     }
 
+    //find mid of the linked list
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public boolean checkPalindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        // Step1 to find mid node
+        Node midNode = findMid(head);
+
+        // Step 2 to reverse second half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node right = prev; // right half head
+        Node left = head;
+
+        //check left half == right half
+        while (right != null) {
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+
+    }
+
     public void printLList(){
         if(head == null){
             System.out.println("LinkedList is empty.");
@@ -186,14 +230,17 @@ public class LinkedList {
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         // ll.printLList();
-        ll.addFirst(2);
+        // ll.addFirst(1);
         // ll.printLList();
-        ll.addFirst(1);
+        // ll.addFirst(2);
         // ll.printLList();
-        ll.addLast(3);
+        // ll.addLast(2);
         // ll.printLList();
-        ll.addLast(4);
-        ll.add(2, 9);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(2);
+        ll.addLast(1);
+        // ll.add(2, 9);
         ll.printLList();
 
         // System.out.println("Size of my Linked List : " + size);
@@ -219,7 +266,10 @@ public class LinkedList {
         // ll.printLList();
 
         //delete nth node from last 
-        ll.deleteNthFromEnd(3);
-        ll.printLList();
+        // ll.deleteNthFromEnd(3);
+        // ll.printLList();
+
+        //check palindrome
+        System.out.println(ll.checkPalindrome());
     }
 }
