@@ -216,6 +216,55 @@ public class LinkedList {
 
     }
 
+
+    //Detect cycle in linked list
+    public static boolean isCycle(){ //floyds cycle finding algorithm
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void removeCycle(){
+        //Detect cycle
+        isCycle();
+        Node slow = head;
+        Node fast = head;
+        Node prev = null;
+        Boolean cycle = false;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                cycle = true;
+                break;
+            }
+        }
+        if(cycle == false){
+            return;
+        }
+
+        slow = head;
+
+        //Find Meeting Point
+        while(slow != fast){
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        //remove cycle -> last
+        prev.next = null;
+
+    }
+
     public void printLList(){
         if(head == null){
             System.out.println("LinkedList is empty.");
@@ -228,7 +277,7 @@ public class LinkedList {
         System.out.println("null");
     }
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        // LinkedList ll = new LinkedList();
         // ll.printLList();
         // ll.addFirst(1);
         // ll.printLList();
@@ -236,12 +285,12 @@ public class LinkedList {
         // ll.printLList();
         // ll.addLast(2);
         // ll.printLList();
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(2);
+        // ll.addLast(1);
         // ll.add(2, 9);
-        ll.printLList();
+        // ll.printLList();
 
         // System.out.println("Size of my Linked List : " + size);
 
@@ -270,6 +319,16 @@ public class LinkedList {
         // ll.printLList();
 
         //check palindrome
-        System.out.println(ll.checkPalindrome());
+        // System.out.println(ll.checkPalindrome());
+
+        //detect cycle from the linked list
+        head = new Node(1);
+        Node temp = new Node(2);
+        head.next = temp;
+        head .next.next= new Node(3);
+        head .next.next.next= temp;
+        System.out.println(isCycle());
+        removeCycle();
+        System.out.println(isCycle());
     }
 }
