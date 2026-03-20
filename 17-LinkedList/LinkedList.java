@@ -147,6 +147,31 @@ public class LinkedList {
         head = prev;
     }
 
+    //delete nth node from end
+    public void deleteNthFromEnd(int n){
+        //calculate size
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            sz++;
+            temp = temp.next;
+        }
+        if(n == sz){
+            head = head.next;
+            return;
+        }
+
+        int i = 1;
+        int iToFind = sz-n;
+        Node prev = head;
+        while (i < iToFind) {
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
+
     public void printLList(){
         if(head == null){
             System.out.println("LinkedList is empty.");
@@ -190,7 +215,11 @@ public class LinkedList {
         // System.out.println(ll.itrSearch(310));
 
         //Reverse Linked list function
-        ll.reverse();
+        // ll.reverse();
+        // ll.printLList();
+
+        //delete nth node from last 
+        ll.deleteNthFromEnd(3);
         ll.printLList();
     }
 }
