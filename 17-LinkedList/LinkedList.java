@@ -234,7 +234,6 @@ public class LinkedList {
 
     public static void removeCycle(){
         //Detect cycle
-        isCycle();
         Node slow = head;
         Node fast = head;
         Node prev = null;
