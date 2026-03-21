@@ -7,5 +7,10 @@ public class CollectionLL {
         ll.addLast(2);
         ll.addFirst(0);
         System.out.println(ll);
+
+        // Remove first and last element
+        ll.removeLast();
+        ll.removeFirst();
+        System.out.println(ll);
     }
 }
