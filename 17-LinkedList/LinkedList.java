@@ -264,6 +264,45 @@ public class LinkedList {
 
     }
 
+    //Zig-Zag problem
+    public void zigZag(){
+        //find mid
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;    
+
+        //2nd half reverse
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+        while (curr!=null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node left = head;
+        Node right = prev;
+        Node nextL, nextR;
+
+        //Alternate merging
+        while (left != null && right !=null) {
+            nextL = left.next;
+            left.next = right;
+            nextR = right.next;
+            right.next = nextL;
+
+            left = nextL;
+            right = nextR;
+        }
+    }
+
     public void printLList(){
         if(head == null){
             System.out.println("LinkedList is empty.");
@@ -276,7 +315,7 @@ public class LinkedList {
         System.out.println("null");
     }
     public static void main(String[] args) {
-        // LinkedList ll = new LinkedList();
+        LinkedList ll = new LinkedList();
         // ll.printLList();
         // ll.addFirst(1);
         // ll.printLList();
@@ -321,13 +360,24 @@ public class LinkedList {
         // System.out.println(ll.checkPalindrome());
 
         //detect cycle from the linked list
-        head = new Node(1);
-        Node temp = new Node(2);
-        head.next = temp;
-        head .next.next= new Node(3);
-        head .next.next.next= temp;
-        System.out.println(isCycle());
-        removeCycle();
-        System.out.println(isCycle());
+        // head = new Node(1);
+        // Node temp = new Node(2);
+        // head.next = temp;
+        // head .next.next= new Node(3);
+        // head .next.next.next= temp;
+        // System.out.println(isCycle());
+        // removeCycle();
+        // System.out.println(isCycle());
+
+        // ZigZag problem
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(3);
+        ll.addLast(4);
+        ll.addLast(5);
+        ll.addLast(6);
+        ll.printLList();
+        ll.zigZag();
+        ll.printLList();
     }
 }
