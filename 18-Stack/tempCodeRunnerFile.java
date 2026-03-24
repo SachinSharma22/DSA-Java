@@ -1,2 +1,0 @@
-reverseStack(s);
-        p
