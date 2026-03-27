@@ -19,6 +19,7 @@ public class CircularQueueUsingArr {
             return (rear + 1) % size == front;
         }
 
+        //add
         public void add(int data) {
             if(isFull()){
                 System.out.println("Queue is full");
@@ -31,6 +32,8 @@ public class CircularQueueUsingArr {
             rear = (rear+1) % size;
             arr[rear] = data;
         }
+
+        //remove
         public int remove(){
             if(isEmpty()){
                 System.out.println("Queue is Empty");
@@ -63,7 +66,10 @@ public class CircularQueueUsingArr {
         q.add(2);
         q.add(3);
         q.add(4);
-
+        System.out.println(q.remove());
+        q.add(5);
+        System.out.println(q.remove());
+        q.add(6);
         while (!q.isEmpty()) {
             System.out.print(q.peek() + " ");
             q.remove();
