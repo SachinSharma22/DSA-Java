@@ -34,6 +34,10 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - Divide and Conquer
 - Backtracking
 - ArrayList
+- TwoPointerPattern problems
+- Linked List
+- Stack
+- Queue
 ---
 
 ## How to Run a File
