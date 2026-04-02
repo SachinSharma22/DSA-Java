@@ -21,6 +21,8 @@ public class HeightOfTree {
         int rh = heightOfTree(root.right);
         return Math.max(lh, rh) + 1;
     }
+
+    //count number of nodes in the tree
     public static int countOfNodes(Node root) {
         if(root == null) {
             return 0;
@@ -29,6 +31,18 @@ public class HeightOfTree {
         int lc = countOfNodes(root.left);
         int rc = countOfNodes(root.right);
          return lc + rc + 1;
+    }
+
+    // calculate total of nodes value in the tree
+    public static int totalValues(Node root) {
+        if(root == null) {
+            return 0;
+        }
+
+        int leftTotal = totalValues(root.left);
+        int rightTotal = totalValues(root.right);
+
+        return leftTotal + rightTotal + root.data;
     }
     public static void main(String[] args) {
         Node root = new Node(1);
@@ -43,6 +57,9 @@ public class HeightOfTree {
         // System.out.println(heightOfTree(root));
 
         // This calculates total number of nodes in the tree
-        System.out.println(countOfNodes(root));
+        // System.out.println(countOfNodes(root));
+
+        //This calculate the sum of total nodes
+        System.out.println(totalValues(root));
     }
 }
