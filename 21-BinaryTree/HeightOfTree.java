@@ -46,17 +46,40 @@ public class HeightOfTree {
     }
 
     // Diameter of the tree
-    public static int diameter(Node root ) {
+    public static int diameter2(Node root ) {
         if(root == null) {
             return 0;
         }
-        int leftDia = diameter(root.left);
+        int leftDia = diameter2(root.left);
         int leftHt = heightOfTree(root.left);
-        int rightDia = diameter(root.right);
+        int rightDia = diameter2(root.right);
         int rightHt = heightOfTree(root.right);
 
         int selfDiam = leftHt + rightHt + 1;
         return Math.max(selfDiam, Math.max(leftDia, rightDia));
+    }
+
+    //Optimized way to find diameter
+    public static class Info {
+        int diam;
+        int ht;
+
+        Info(int diam, int ht) {
+            this.diam = diam;
+            this.ht = ht;
+        }
+    }
+
+    public static Info diameter(Node root) {
+        if(root == null ){
+            return new Info(0, 0);
+        }
+        Info leftInfo = diameter(root.left);
+        Info rightInfo = diameter(root.right);
+        int diam = Math.max(Math.max(leftInfo.diam, rightInfo.diam), leftInfo.ht + rightInfo.ht + 1);
+        int ht = Math.max(leftInfo.ht, rightInfo.ht) + 1;
+
+        return new Info(diam, ht);
     }
     public static void main(String[] args) {
         Node root = new Node(1);
@@ -77,6 +100,9 @@ public class HeightOfTree {
         // System.out.println(totalValues(root));
 
         //Diameter of tree
-        System.out.println(diameter(root));
+        // System.out.println(diameter(root));
+
+        //Diameter with linear time complexity
+        System.out.println(diameter(root).diam);
     }
 }
