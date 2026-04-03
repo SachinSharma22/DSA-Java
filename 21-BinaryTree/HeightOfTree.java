@@ -76,10 +76,42 @@ public class HeightOfTree {
         }
         Info leftInfo = diameter(root.left);
         Info rightInfo = diameter(root.right);
-        int diam = Math.max(Math.max(leftInfo.diam, rightInfo.diam), leftInfo.ht + rightInfo.ht + 1);
+        int diam = Math.max(Math.max(leftInfo.diam, rightInfo.diam), leftInfo.ht + rightInfo.ht);
         int ht = Math.max(leftInfo.ht, rightInfo.ht) + 1;
 
         return new Info(diam, ht);
+    }
+
+
+    //is Subtree
+
+    public static boolean isIdentical(Node node,Node subNode) {
+        if(node == null && subNode == null) {
+            return true;
+        }else if(node == null || subNode == null || node.data != subNode.data) {
+            return false;
+        }
+
+        if(!isIdentical(node.left, subNode.left)) {
+            return false;
+        }
+        if(!isIdentical(node.right, subNode.right)) {
+            return false;
+        }
+
+        return true;
+    }
+    public static boolean isSubtree(Node root, Node subRoot) {
+        if(root == null) {
+            return false;
+        }
+        if(root.data == subRoot.data) {
+           if(isIdentical(root, subRoot)) {
+                return true;
+            }
+        }
+
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
     public static void main(String[] args) {
         Node root = new Node(1);
@@ -103,6 +135,13 @@ public class HeightOfTree {
         // System.out.println(diameter(root));
 
         //Diameter with linear time complexity
-        System.out.println(diameter(root).diam);
+        // System.out.println(diameter(root).diam);
+
+        //sub tree
+        Node subNode = new Node(2);
+        subNode.left = new Node(4);
+        subNode.right = new Node(5);
+
+        System.out.println(isSubtree(root, subNode));
     }
 }
