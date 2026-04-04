@@ -118,9 +118,7 @@ public class HeightOfTree {
         if(root == null) {
             return Integer.MIN_VALUE;
         }
-        int leftMax = findMaxNode(root.left);
-        int rightMax = findMaxNode(root.right);
-        return Math.max(root.data, Math.max(leftMax, rightMax));
+        return Math.max(root.data, Math.max(findMaxNode(root.left), findMaxNode(root.right)));
     }
     public static void main(String[] args) {
         Node root = new Node(1);
