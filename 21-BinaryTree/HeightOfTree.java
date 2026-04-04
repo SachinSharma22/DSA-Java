@@ -33,6 +33,24 @@ public class HeightOfTree {
          return lc + rc + 1;
     }
 
+
+    //left sum
+    public static int sumOfLeftLeaves(Node root) {
+        if(root == null) {
+            return 0;
+        }
+        int sum = 0;
+        if(root.left!= null && root.left.left == null && root.left.right == null) {
+            sum += root.left.data;
+        }else {
+            sum += sumOfLeftLeaves(root.left);
+        }
+        
+        sum += sumOfLeftLeaves(root.right);
+        return sum;
+
+    }
+
     // calculate total of nodes value in the tree
     public static int totalValues(Node root) {
         if(root == null) {
@@ -145,7 +163,10 @@ public class HeightOfTree {
         // System.out.println(diameter(root).diam);
 
         //find max of the sub tree
-        System.out.println(findMaxNode(root));
+        // System.out.println(findMaxNode(root));
+
+        //Left sum
+        System.out.println(sumOfLeftLeaves(root));
 
         //sub tree
         // Node subNode = new Node(2);
