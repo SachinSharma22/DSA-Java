@@ -113,6 +113,15 @@ public class HeightOfTree {
 
         return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
+
+    public static int findMaxNode(Node root) {
+        if(root == null) {
+            return Integer.MIN_VALUE;
+        }
+        int leftMax = findMaxNode(root.left);
+        int rightMax = findMaxNode(root.right);
+        return Math.max(root.data, Math.max(leftMax, rightMax));
+    }
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -137,11 +146,14 @@ public class HeightOfTree {
         //Diameter with linear time complexity
         // System.out.println(diameter(root).diam);
 
-        //sub tree
-        Node subNode = new Node(2);
-        subNode.left = new Node(4);
-        subNode.right = new Node(5);
+        //find max of the sub tree
+        System.out.println(findMaxNode(root));
 
-        System.out.println(isSubtree(root, subNode));
+        //sub tree
+        // Node subNode = new Node(2);
+        // subNode.left = new Node(4);
+        // subNode.right = new Node(5);
+
+        // System.out.println(isSubtree(root, subNode));
     }
 }
