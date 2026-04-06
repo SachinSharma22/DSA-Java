@@ -45,8 +45,40 @@ public class BuildBST {
         }
     }
 
+    //delete
+    public static Node delete(Node root, int key) {
+        if(root.data < key) {
+            root.right = delete(root.right, key);
+        }else if(root.data > key) {
+            root.left = delete(root.left, key);
+        }else{//voila case
+            //case 1-> Leaf node
+            if(root.left == null && root.right == null) {
+                return null;
+            }
+            //case 2 -> single node
+            if(root.left == null ) {
+                return root.right;
+            }else if (root.right == null ) {
+                return root.left;
+            }
+            //Both childrens are available -> Find InorderSuccessor
+            Node IS = findInorderSuccessor(root.right);
+            root.data = IS.data;
+            root.right = delete(root.right, IS.data);
+        }
+        return root;
+    }
+
+    public static Node findInorderSuccessor(Node root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
-        int values[] = {5,1,3,4,2,7};
+        int values[] = {8,5,3,1,4,6,10,11,14};
         Node root = null;
 
         for (int i = 0; i < values.length; i++) {
@@ -56,11 +88,15 @@ public class BuildBST {
         inorder(root);
         System.out.println();
 
-        //search
-        if(search(root, 11)){
-            System.out.println("FOUND");
-        }else{
-            System.out.println("NOT FOUND");
-        }
+        //delete node
+        delete(root, 5);
+        inorder(root);
+
+        // //search
+        // if(search(root, 11)){
+        //     System.out.println("FOUND");
+        // }else{
+        //     System.out.println("NOT FOUND");
+        // }
     }
 }
