@@ -7,6 +7,19 @@ public class OperationsOnArray {
                 
             }
         }
+        // Step 2: Move zeros to end (Two Pointer)
+        int j = 0; // pointer for placing non-zero
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                // swap nums[i] and nums[j]
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+
+                j++;
+            }
+        }
         return nums;
     }
 
