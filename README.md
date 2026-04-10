@@ -38,6 +38,10 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - Linked List
 - Stack
 - Queue
+- GreedyAlgorithm
+- BinaryTree
+- Binary Search Tree (BST)
+- Sliding Window
 ---
 
 ## How to Run a File
