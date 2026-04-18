@@ -15,5 +15,9 @@ public class IterationOnHashMap {
         //Iterate
         Set<String> keys = hm.keySet();
         System.out.println(keys);
+
+        for (String key : keys) {
+            System.out.println(key);
+        }
     }
 }
