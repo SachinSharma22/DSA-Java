@@ -11,6 +11,8 @@ public class UnionAndIntersection {
            un.add(num2[i]) ;
         }
 
+        System.out.print(un + " ");
+
         System.out.println("Union size = " + un.size());
     }
 
@@ -23,6 +25,7 @@ public class UnionAndIntersection {
         for (int i = 0; i < num2.length; i++) {
           if(isec.contains(num2[i])){
             count++;
+            System.out.print(num2[i] + " ");
             isec.remove(num2[i]);
           }
         }
