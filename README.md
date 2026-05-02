@@ -42,12 +42,14 @@ I am learning DSA step by step and pushing code regularly as part of my preparat
 - BinaryTree
 - Binary Search Tree (BST)
 - Sliding Window
+- Heaps
+- Hashing
 ---
 
 ## How to Run a File
 
 javac FileName.java
-java FileName
+java FileName.java
 
 ----
 
