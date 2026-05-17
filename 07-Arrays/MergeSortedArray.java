@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.Arrays;
+// import java.util.Scanner;
 
 public class MergeSortedArray {
     // For Merging two array
@@ -43,32 +44,52 @@ public class MergeSortedArray {
         }
     return nums;
 }
+
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int j = 0;
+        for (int i = m; i < nums1.length; i++) {
+            nums1[i] = nums2[j++];
+        }
+
+        Arrays.sort(nums1);
+
+        for (int i : nums1) {
+            System.out.print(i + " ");
+        }
+    }
    public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    System.out.print("Enter size of first array: ");
-    int n = sc.nextInt();
-    int[] nums1 = new int[n];
-    System.out.print("Enter values of array");
-    for(int i = 0; i< n; i++){
-        nums1[i] = sc.nextInt();
-    }
 
-    // For second array
-    System.out.print("Enter size of Second array: ");
-    int m = sc.nextInt();
-    int[] nums2 = new int[m];
-    System.out.print("Enter values of array");
-    for(int i = 0; i< m; i++){
-        nums2[i] = sc.nextInt();
-    }
-    int[] mergedArray = mergeArray(nums1, nums2);
-    int[] zeroRemovedArray = removeZero(mergedArray);
-    int[] sortedArray = sortArray(zeroRemovedArray);
-    System.out.println("Sorted and Merged array in non-decreasing order is: - ");
-    for (int i = 0; i < sortedArray.length; i++) {
-        System.out.print(sortedArray[i] + " ");
-    }
+    int nums1[] = {1,2,3,0,0,0};
+    int nums2[] = {2,5,6};
+    int m = 3;
+    int n = 3;
+    merge(nums1, m, nums2, n);
 
-    sc.close();
+    // Scanner sc = new Scanner(System.in);
+    // System.out.print("Enter size of first array: ");
+    // int n = sc.nextInt();
+    // int[] nums1 = new int[n];
+    // System.out.print("Enter values of array");
+    // for(int i = 0; i< n; i++){
+    //     nums1[i] = sc.nextInt();
+    // }
+
+    // // For second array
+    // System.out.print("Enter size of Second array: ");
+    // int m = sc.nextInt();
+    // int[] nums2 = new int[m];
+    // System.out.print("Enter values of array");
+    // for(int i = 0; i< m; i++){
+    //     nums2[i] = sc.nextInt();
+    // }
+    // int[] mergedArray = mergeArray(nums1, nums2);
+    // int[] zeroRemovedArray = removeZero(mergedArray);
+    // int[] sortedArray = sortArray(zeroRemovedArray);
+    // System.out.println("Sorted and Merged array in non-decreasing order is: - ");
+    // for (int i = 0; i < sortedArray.length; i++) {
+    //     System.out.print(sortedArray[i] + " ");
+    // }
+
+    // sc.close();
    } 
 }
